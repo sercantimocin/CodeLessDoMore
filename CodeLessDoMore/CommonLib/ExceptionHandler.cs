@@ -32,6 +32,32 @@ namespace CommonLib
     public static class ExceptionHandler
     {
         /// <summary>
+        /// The execute function.
+        /// </summary>
+        /// <param name="function">
+        /// The function.
+        /// </param>
+        /// <typeparam name="T">
+        /// T
+        /// </typeparam>
+        /// <returns>
+        /// The <see cref="T"/>.
+        /// </returns>
+        /// <exception cref="Exception">
+        /// </exception>
+        public static T ExecuteFunctio<T>(Func<T> function)
+        {
+            try
+            {
+                return function();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
         /// The execute function with handler.
         /// </summary>
         /// <param name="function">

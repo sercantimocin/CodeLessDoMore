@@ -19,7 +19,7 @@ namespace CommonLib.Tests
             int number1 = 5;
             int number2 = 0;
 
-            var result = ExceptionHandler.ExecuteFunction(() => number1 / number2);
+            CustomResult<int> result = ExceptionHandler.ExecuteFunction<int>(() => number1 / number2);
 
             Debug.WriteLine(result.ToJson());
 
@@ -48,6 +48,23 @@ namespace CommonLib.Tests
             Debug.WriteLine(result.ToJson());
             Assert.That(result.ErrorMessage, Is.EqualTo("Error list is empty"));
             Assert.That(result.IsSuccessful, Is.EqualTo(false));
+        }
+
+
+        public void Division()
+        {
+            try
+            {
+                int number1 = 5;
+                int number2 = 0;
+
+                int result = number1 / number2;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
